@@ -1,0 +1,11 @@
+<h1>Welcome to my application</h1>
+<h3>Please, enter known credentials</h3>
+<%= form_for :search, url: 'home#index' do |f| %>
+  <label>VK</label>
+  <%= f.text_field :vk_link %>
+  <label>Instagram</label>
+  <%= f.text_field :inst_link %>
+  <label>Twitter</label>
+  <%= f.text_field :twit_link %>
+  <%= f.submit %>
+<% end %>
