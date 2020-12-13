@@ -1,11 +1,47 @@
 <h1>Welcome to my application</h1>
 <h3>Please, enter known credentials</h3>
-<%= form_for :search, url: 'home#index' do |f| %>
-  <label>VK</label>
-  <%= f.text_field :vk_link %>
-  <label>Instagram</label>
-  <%= f.text_field :inst_link %>
-  <label>Twitter</label>
-  <%= f.text_field :twi_link %>
-  <%= f.submit %>
-<% end %>
+  <div class='wrapper'>
+    <header>
+      <div id="logo" onclick="slowscroll('#top')"> <!-- onclick="slowscroll('#top')" -->
+        <span>SPYDERMAN</span>
+      </div>
+      <div id="reg">
+        <a href="#" tytle="login" id="login">log in</a>
+        <a href="#" tytle="signup" id="signup">sign up</a>
+      </div>
+    </header>
+
+    <div>
+      <!--<div class="info">
+          <span>Find that dude from tinder
+          </span>-->
+    </div>*/
+    <%= form_for :search, url: 'home#index' do |f| %>
+      VK
+      <%= f.text_field :vk_link %>
+      Instagram
+      <%= f.text_field :inst_link %>
+      Twitter
+      <%= f.text_field :twi_link %>
+      <br/>
+      <%= f.submit %>
+    <% end %>
+    <!--<input class="search" type="search" autocomplete="off" spellcheck="false" aria-live="polite" placeholder="Search">
+    <input class="search" type="search" autocomplete="off" spellcheck="false" aria-live="polite" placeholder="Enter inst">
+    <input class="search" type="search" autocomplete="off" spellcheck="false" aria-live="polite" placeholder="Enter twitter"><-->
+  </div>
+
+
+  <div class="results">
+    <div id="vk">
+      VK
+    </div>
+
+    <div id="inst">
+      Instagram
+    </div>
+
+    <div id="twit">
+      Twitter
+    </div>
+  </div>
