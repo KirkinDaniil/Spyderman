@@ -1,22 +1,19 @@
-<label>UserInfo</label>
-<h2>Social info: </h2>
-<table>
-  <tr>
-    <h3>Vk info</h3>
-    <td>Vk name:</td>
-    <td><%= @search.vk_first_name %></td>
-    <td>Vk surname:</td>
-    <td><%= @search.vk_last_name %></td>
-  </tr>
-  <tr>
-    <h3>Twitter info</h3>
-    <td>Twitter fullname:</td>
-    <td><%= @search.twi_full_name %></td>
-    <td>Twitter id:</td>
-    <td><%= @search.twi_user_id %></td>
-  </tr>
-  <tr>
+
+<div class="results">
+  <div id="vk">
+    <p>Vk First Name: <%= @search.vk_first_name %></p>
+    <p>VK Last Name: <%= @search.vk_last_name %></p>
+    <img src="<%= @search.vk_photo_link %>">
+  </div>
+
+  <div id="inst">
+    Instagram
+  </div>
+
+  <div id="twit">
+    <p>Twitter screen Name: <%= @search.twi_full_name %></p>
+    <p>Twitter ID: <%= @search.twi_user_id %></p>
     <img src="<%= @search.twi_photo_link %>">
-  </tr>
-</table>
+  </div>
+</div>
 <%= @search.victim_bio %>

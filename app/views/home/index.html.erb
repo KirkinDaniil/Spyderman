@@ -1,13 +1,11 @@
-<h1>Welcome to my application</h1>
-<h3>Please, enter known credentials</h3>
-  <div class='wrapper'>
+<div class='wrapper' xmlns="http://www.w3.org/1999/html">
     <header>
       <div id="logo" onclick="slowscroll('#top')"> <!-- onclick="slowscroll('#top')" -->
         <span>SPYDERMAN</span>
       </div>
       <div id="reg">
-        <a href="#" tytle="login" id="login">log in</a>
-        <a href="#" tytle="signup" id="signup">sign up</a>
+        <a href="/users/sign_in" tytle="login" id="login">log in</a>
+        <a href="/users/sign_up" tytle="signup" id="signup">sign up</a>
       </div>
     </header>
 
@@ -16,32 +14,21 @@
           <span>Find that dude from tinder
           </span>-->
     </div>*/
-    <%= form_for :search, url: 'home#index' do |f| %>
-      VK
-      <%= f.text_field :vk_link %>
-      Instagram
-      <%= f.text_field :inst_link %>
-      Twitter
-      <%= f.text_field :twi_link %>
-      <br/>
-      <%= f.submit %>
-    <% end %>
+
+  <form action="home#index", method="post", class="search", name = "search">
+    VK
+    <input class="search_vk" type="text" placeholder="Enter ID" name="search[vk_link]">
+    Instagram
+    <input class="search_inst" type="text" placeholder="Enter username" name="search[inst_link]">
+    Twitter
+    <input class="search_twit" type="text" placeholder="Enter screen name" name="search[twi_link]">
+    <br/>
+    <button class="search_botton" type="submit", name="commit", data-disable-with="Save Search">Search</button>
+  </form>
     <!--<input class="search" type="search" autocomplete="off" spellcheck="false" aria-live="polite" placeholder="Search">
     <input class="search" type="search" autocomplete="off" spellcheck="false" aria-live="polite" placeholder="Enter inst">
     <input class="search" type="search" autocomplete="off" spellcheck="false" aria-live="polite" placeholder="Enter twitter"><-->
   </div>
 
 
-  <div class="results">
-    <div id="vk">
-      VK
-    </div>
 
-    <div id="inst">
-      Instagram
-    </div>
-
-    <div id="twit">
-      Twitter
-    </div>
-  </div>

@@ -14,12 +14,12 @@ body, html{
 
 body{
     background-color: white;
-    font-family: Trebushet MS, Helvetica;
+    font-family: Trebushet MS, Helvetica, sans-serif;
 }
 
 header{
     width: 100%;
-    padding: 10px, 0.5%, 0px, 0.5%;
+    padding: 10px 0.5% 0 0.5%;
     background: #8B0000;
     float: left;
     position: fixed;
@@ -88,10 +88,10 @@ header #reg{
 .search{
     margin-left: 40px;
     margin-top: 100px;
-    color: #8B0000;
+    color: #8b0000;
     font-size: 1.5em;
     line-height: 45px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', serif;
     text-indent: 1.1em;
 }
 
