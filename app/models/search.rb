@@ -28,11 +28,9 @@ class Search < ActiveRecord::Base
     if hash.empty?
       return nil
     end
-    puts hash
     full_name = hash["fullname"]
     photo_link = hash["profilePicUrl"]
     user_id = hash["id"]
-    puts full_name, user_id
     result = Credentials.new(full_name, user_id, photo_link)
     return result
   end
