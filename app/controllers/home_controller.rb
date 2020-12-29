@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!,  only: [:index]
+  before_action :authenticate_user!,  only: [:create]
   def not_found
     render "404.html", status: :not_found
   end
@@ -20,7 +20,6 @@ class HomeController < ApplicationController
     if @search.invalid?
       return not_found
     end
-    puts "cookies[:id]"
     @search.user_id = current_user.id
     #Insert VK credentials
     vk_search = @search.vk_link.nil? ? @search.twi_link : @search.vk_link
@@ -32,7 +31,8 @@ class HomeController < ApplicationController
     end
     #Insert Twitter credentials
     twi_search = @search.twi_link.nil? ? @search.vk_link : @search.twi_link
-    twi_user = @search.get_twitter(twi_search)
+    api_twi = Twi_api_helper.new
+    twi_user = api_twi.get_twitter twi_search
     if !twi_user.nil?
       @search.twi_full_name = twi_user.full_name
       @search.twi_user_id = twi_user.user_id
@@ -40,7 +40,8 @@ class HomeController < ApplicationController
     end
     #insert Instagram credentials
     inst_search = @search.inst_link.nil? ? @search.vk_link : @search.inst_link
-    inst_user = @search.get_inst inst_search
+    api_inst = Inst_api_helper.new
+    inst_user = api_inst.get_inst inst_search
     if !inst_user.nil?
       @search.inst_fullname = inst_user.full_name
       @search.inst_photo_link = inst_user.photo_link
