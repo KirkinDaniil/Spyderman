@@ -1,4 +1,9 @@
-class Inst_api_helper
+class InstApiHelper
+
+  def initialize
+    super
+  end
+
   def get_inst(username)
     url = URI("https://instagram30.p.rapidapi.com/rapi/user/#{username}?username=#{username}")
 
@@ -18,7 +23,7 @@ class Inst_api_helper
     full_name = hash["fullname"]
     photo_link = hash["profilePicUrl"]
     user_id = hash["id"]
-    result = Credentials.new(full_name, user_id, photo_link)
+    result = ViewModel::Credentials.new full_name, user_id, photo_link
     return result
   end
 end

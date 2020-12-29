@@ -4,9 +4,7 @@ class HomeController < ApplicationController
     render "404.html", status: :not_found
   end
 
-  def index
-    cookies[:id] = current_user["id"]
-    puts cookies[:id]
+  def index;
   end
 
   #Showing search results as a 'card'
@@ -34,7 +32,7 @@ class HomeController < ApplicationController
     end
     #Insert Twitter credentials
     twi_search = @search.twi_link.nil? ? @search.vk_link : @search.twi_link
-    api_twi = Twi_api_helper.new
+    api_twi = TwiApiHelper.new
     twi_user = api_twi.get_twitter twi_search
     if !twi_user.nil?
       @search.twi_full_name = twi_user.full_name
@@ -43,7 +41,7 @@ class HomeController < ApplicationController
     end
     #insert Instagram credentials
     inst_search = @search.inst_link.nil? ? @search.vk_link : @search.inst_link
-    api_inst = Inst_api_helper.new
+    api_inst = InstApiHelper.new
     inst_user = api_inst.get_inst inst_search
     if !inst_user.nil?
       @search.inst_fullname = inst_user.full_name

@@ -1,4 +1,9 @@
-class Twi_api_helper
+class TwiApiHelper
+
+  def initialize
+    super
+  end
+
   #getting twitter credentials
   def get_twitter(username)
     url = URI("https://peerreach-peerreach-subscription.p.rapidapi.com/user/lookup.json?screen_name=#{username}")
@@ -19,7 +24,7 @@ class Twi_api_helper
     full_name = username
     user_id = hash['user_id']
     photo_link = "https://twitter.com/#{username}/photo"
-    result = Credentials.new(full_name, user_id, photo_link )
+    result = ViewModel::Credentials.new full_name, user_id, photo_link
     return result
     end
 end
