@@ -7,7 +7,7 @@ class Search < ActiveRecord::Base
 
   #getting vk_info
   def get_vk(user_id)
-    @vk = VkontakteApi::Client.new '5c4469995c4469995c446999b75c314cc355c445c44699903fac963479419a58644cb51'
+    @vk = VkontakteApi::Client.new API_VK["token"]
     user = @vk.users.get(user_ids: user_id, fields:'photo_100', v:5.126)
   end
 
@@ -20,7 +20,7 @@ class Search < ActiveRecord::Base
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["x-rapidapi-key"] = '6a8006dfc8msh9d6af52ac22eaf1p1350dcjsn07c12c474009'
+    request["x-rapidapi-key"] = API_INST["token"]
     request["x-rapidapi-host"] = 'instagram30.p.rapidapi.com'
 
     response = http.request(request)
@@ -44,7 +44,7 @@ class Search < ActiveRecord::Base
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["x-rapidapi-key"] = '6a8006dfc8msh9d6af52ac22eaf1p1350dcjsn07c12c474009'
+    request["x-rapidapi-key"] = API_TWI["token"]
     request["x-rapidapi-host"] = 'peerreach-peerreach-subscription.p.rapidapi.com'
 
     response = http.request(request)

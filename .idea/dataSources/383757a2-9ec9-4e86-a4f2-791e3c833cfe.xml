@@ -684,7 +684,7 @@ true Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
-false Pacific/Fiji
+true Pacific/Fiji
 false Pacific/Funafuti
 false Pacific/Galapagos
 false Pacific/Gambier
@@ -789,7 +789,7 @@ false Zulu
     <database id="2" parent="1" name="SocialWeb_dev">
       <ObjectId>16397</ObjectId>
       <Owner>WebSpyder</Owner>
-      <IntrospectionStateNumber>596</IntrospectionStateNumber>
+      <IntrospectionStateNumber>611</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16415|16417|1
 sequence|table|24589|24591|1
@@ -861,7 +861,7 @@ sequence|table|24600|24602|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>597</IntrospectionStateNumber>
+      <IntrospectionStateNumber>612</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="2" name="heap">
@@ -967,12 +967,12 @@ sequence|table|24600|24602|1
     <table id="36" parent="17" name="searches">
       <ObjectId>24591</ObjectId>
       <Owner>WebSpyder</Owner>
-      <StateNumber>595</StateNumber>
+      <StateNumber>610</StateNumber>
     </table>
     <table id="37" parent="17" name="users">
       <ObjectId>24602</ObjectId>
       <Owner>WebSpyder</Owner>
-      <StateNumber>553</StateNumber>
+      <StateNumber>610</StateNumber>
     </table>
     <column id="38" parent="33" name="key">
       <Position>1</Position>
@@ -1186,21 +1186,37 @@ sequence|table|24600|24602|1
       <StateNumber>595</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="70" parent="36" name="searches_pkey">
+    <column id="70" parent="36" name="user_id">
+      <Position>17</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>610</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="71" parent="36" name="searches_pkey">
       <ObjectId>24598</ObjectId>
       <StateNumber>576</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="71" parent="36" name="searches_pkey">
+    <key id="72" parent="36" name="searches_pkey">
       <ObjectId>24599</ObjectId>
       <StateNumber>501</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>searches_pkey</UnderlyingIndexName>
     </key>
-    <column id="72" parent="37" name="id">
+    <foreign-key id="73" parent="36" name="fk_rails_e192b86393">
+      <ObjectId>32788</ObjectId>
+      <StateNumber>610</StateNumber>
+      <ColNames>user_id</ColNames>
+      <RefTableId>24602</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="74" parent="37" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1208,7 +1224,7 @@ sequence|table|24600|24602|1
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="73" parent="37" name="email">
+    <column id="75" parent="37" name="email">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
@@ -1216,7 +1232,7 @@ sequence|table|24600|24602|1
       <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
-    <column id="74" parent="37" name="encrypted_password">
+    <column id="76" parent="37" name="encrypted_password">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
@@ -1224,25 +1240,25 @@ sequence|table|24600|24602|1
       <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
-    <column id="75" parent="37" name="reset_password_token">
+    <column id="77" parent="37" name="reset_password_token">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>553</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="76" parent="37" name="reset_password_sent_at">
+    <column id="78" parent="37" name="reset_password_sent_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>553</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="77" parent="37" name="remember_created_at">
+    <column id="79" parent="37" name="remember_created_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>553</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="78" parent="37" name="failed_attempts">
+    <column id="80" parent="37" name="failed_attempts">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1250,52 +1266,52 @@ sequence|table|24600|24602|1
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="79" parent="37" name="unlock_token">
+    <column id="81" parent="37" name="unlock_token">
       <Position>8</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>553</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="80" parent="37" name="locked_at">
+    <column id="82" parent="37" name="locked_at">
       <Position>9</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>553</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="81" parent="37" name="created_at">
+    <column id="83" parent="37" name="created_at">
       <Position>10</Position>
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>553</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="82" parent="37" name="updated_at">
+    <column id="84" parent="37" name="updated_at">
       <Position>11</Position>
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>553</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="83" parent="37" name="users_pkey">
+    <index id="85" parent="37" name="users_pkey">
       <ObjectId>24612</ObjectId>
       <StateNumber>553</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="84" parent="37" name="index_users_on_email">
+    <index id="86" parent="37" name="index_users_on_email">
       <ObjectId>24614</ObjectId>
       <StateNumber>553</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="85" parent="37" name="index_users_on_reset_password_token">
+    <index id="87" parent="37" name="index_users_on_reset_password_token">
       <ObjectId>24615</ObjectId>
       <StateNumber>553</StateNumber>
       <ColNames>reset_password_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="86" parent="37" name="users_pkey">
+    <key id="88" parent="37" name="users_pkey">
       <ObjectId>24613</ObjectId>
       <StateNumber>553</StateNumber>
       <ColNames>id</ColNames>

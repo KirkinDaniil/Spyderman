@@ -1,10 +1,13 @@
 class HomeController < ApplicationController
-
+  before_action :authenticate_user!,  only: [:index]
   def not_found
     render "404.html", status: :not_found
   end
 
-  def index;  end
+  def index
+    cookies[:id] = current_user["id"]
+    puts cookies[:id]
+  end
 
   #Showing search results as a 'card'
   def show
@@ -17,6 +20,8 @@ class HomeController < ApplicationController
     if @search.invalid?
       return not_found
     end
+    puts "cookies[:id]"
+    @search.user_id = current_user.id
     #Insert VK credentials
     vk_search = @search.vk_link.nil? ? @search.twi_link : @search.vk_link
     vk_user = @search.get_vk vk_search
@@ -47,7 +52,7 @@ class HomeController < ApplicationController
   end
 
   private def home_params
-    params.require(:search).permit(:vk_link, :inst_link, :twi_link)
+    params.require(:search).permit(:vk_link, :inst_link, :twi_link, :current_user)
   end
 
 end
