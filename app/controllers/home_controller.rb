@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!,  only: [:create]
+  #before_action :authenticate_user!,  only: [:create]
   def not_found
     render "404.html", status: :not_found
   end
@@ -20,7 +20,10 @@ class HomeController < ApplicationController
     if @search.invalid?
       return not_found
     end
-    @search.user_id = current_user.id
+    if user_signed_in?
+      @search.user_id = current_user["id"]
+    end
+
     #Insert VK credentials
     vk_search = @search.vk_link.nil? ? @search.twi_link : @search.vk_link
     vk_user = @search.get_vk vk_search

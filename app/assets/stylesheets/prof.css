@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body, html{
+    width: 100%;
+    /*height:auto;*/
+}
+
+body{
+    background-color: white;
+    font-family: Trebushet MS, Helvetica;
+}
+
+header{
+    width: 100%;
+    padding: 10px 0.5% 0 0.5%;
+    background: #8B0000;
+    float: left;
+    position: fixed;
+}
+
+header #logo{
+    color: #fff;
+    margin-top: 1%;
+    float: left;
+    width: 30%;
+    font-size: 1.1em;
+}
+
+header #logo a{
+    color: #fff;
+    font-size: 1.7em;
+    line-height: 45px;
+    margin-left: 40px;
+    font-family: 'Poppins'
+}
+
+header #reg{
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-family: 'Montserrat'
+}
+
+#reg{
+    text-align: right;
+    font-size: 1em;
+    line-height: 50px;
+    /*word-spacing: 10px; */
+}
+#reg > a {
+    color: #fff;
+}
+
+#profile{padding-right: 10px;}
+#login{padding-right: 10px;}
+
+.username{
+    color: #8B0000;
+    margin-top: 100px;
+    margin-left: 20px;
+    float: left;
+    width: 30%;
+    font-size: 1.1em;
+    line-height: 45px;
+    margin-left: 40px;
+    font-family: 'Poppins'
+}
+
+.history{
+    color: #8B0000;
+    float: left;
+    width: 30%;
+    font-size: 1.1em;
+    line-height: 45px;
+    margin-left: 50%;
+    font-family: 'Poppins'
+}
